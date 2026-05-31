@@ -37,19 +37,31 @@ python3 --version
 # If < 3.11, use: /opt/anaconda3/bin/python --version (if you have Anaconda)
 ```
 
-### Install Dependencies
+### Install
+
+```bash
+pip install https://github.com/chbrandt/interlink-echo-plugin/archive/refs/tags/v0.1.1.tar.gz
+```
+
+This will install the plugin and create an entrypoint/script named `interlink-echo-plugin`.
+Run it to start the plugin server:
+
+```bash
+interlink-echo-plugin
+```
+
+## Development
+
+### Install
 
 ```bash
 cd interlink-minimalist-plugin
 
 # If using system Python 3.11+
-pip install -r requirements.txt
-
-# If using Anaconda Python (recommended on macOS)
-/opt/anaconda3/bin/python -m pip install -r requirements.txt
+pip install -e . 
 ```
 
-## Running the Plugin
+### Running the Plugin
 
 Start the plugin server:
 

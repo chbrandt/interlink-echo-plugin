@@ -1,5 +1,5 @@
 # Install the local interlink SDK
-interlink @ git+https://github.com/interlink-hq/interlink-plugin-sdk
+interlink @ https://github.com/interlink-hq/interlink-plugin-sdk/archive/refs/tags/0.5.0.tar.gz
 
 # Web framework dependencies
 fastapi>=0.114.0
