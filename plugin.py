@@ -10,7 +10,7 @@ import json
 from typing import List
 
 from fastapi import FastAPI
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import PlainTextResponse, HTMLResponse
 
 import interlink
 
@@ -94,3 +94,17 @@ async def status_pod(pods: List[interlink.PodRequest]) -> List[interlink.PodStat
 async def get_logs(req: interlink.LogRequest) -> bytes:
     _dump("GET LOGS", req)
     return b"[minimalist-plugin] no logs available\n"
+
+@app.get("/", response_class=HTMLResponse, include_in_schema=False)
+async def root():
+    index_html = """
+    <html>
+        <head><title>interLink Echo Plugin</title></head>
+        <body>
+            <h1>Minimalist interLink Plugin</h1>
+            <p>This plugin echoes all requests to stdout and returns minimal valid responses.</p>
+            <p>See the <a href="/docs">docs/</a> for endpoints.</p>
+        </body>
+    </html>
+    """
+    return HTMLResponse(content=index_html, media_type="text/html")

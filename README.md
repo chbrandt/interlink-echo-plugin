@@ -1,10 +1,12 @@
-# Minimalist interLink Plugin
+# Echo interLink Plugin
 
-A minimal implementation of an interLink plugin that demonstrates the basic structure and API endpoints required for interLink integration. This plugin echoes all requests to stdout and returns minimal valid responses.
+A minimal implementation of an interLink plugin that echoes all requests
+to stdout and returns minimal valid responses.
 
 ## Purpose
 
 This plugin serves as:
+
 - **Educational reference** for understanding the interLink plugin API
 - **Testing tool** for debugging interLink core communication
 - **Starting template** for building custom plugins
@@ -82,24 +84,28 @@ curl -X POST http://localhost:4000/create \
 ## API Endpoints
 
 ### POST /create
+
 Creates a pod and returns a CreateStruct with PodUID and PodJID.
 
 **Request**: `Pod` object from interlink-plugin-sdk
 **Response**: `CreateStruct` with `PodUID` and `PodJID="1"`
 
 ### POST /delete
+
 Deletes a pod.
 
 **Request**: `PodRequest` object
 **Response**: String confirmation message
 
 ### GET /status
+
 Returns the status of one or more pods.
 
 **Request**: List of `PodRequest` objects
 **Response**: List of `PodStatus` objects with containers in "waiting" state
 
 ### GET /getLogs
+
 Returns logs for a specific container.
 
 **Request**: `LogRequest` object
